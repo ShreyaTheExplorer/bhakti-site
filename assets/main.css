@@ -62,27 +62,3 @@ h3 {
   scrollbar-width: thin;
   scrollbar-color: rgba(229, 169, 184, 0.6) rgba(253, 247, 238, 0.4);
 }
-
-
-.soft-scrollbar::-webkit-scrollbar {
-  width: 6px;
-}
-
-.soft-scrollbar::-webkit-scrollbar-track {
-  background: rgba(253, 247, 238, 0.4);
-  border-radius: 999px;
-}
-
-.soft-scrollbar::-webkit-scrollbar-thumb {
-  background: rgba(229, 169, 184, 0.6);
-  border-radius: 999px;
-}
-
-.soft-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: rgba(212, 91, 130, 0.8);
-}
-
-.soft-scrollbar {
-  scrollbar-width: thin;
-  scrollbar-color: rgba(229, 169, 184, 0.6) rgba(253, 247, 238, 0.4);
-}
