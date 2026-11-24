@@ -11,17 +11,25 @@ const { data } = await useAsyncData('fv-' + (props.id || 'root'), async () => {
   return { folders: f.data || [], songs: s.data || [], cur: cur.data }
 })
 </script>
+
 <template>
-  <div>
-    <NuxtLink v-if="data.cur" :to="data.cur.parent_id ? '/folder/' + data.cur.parent_id : '/'" class="text-verbena">‹ Back</NuxtLink>
+  <div class="max-w-3xl mx-auto p-4 sm:p-6">
+    <NuxtLink
+      v-if="data.cur"
+      :to="data.cur.parent_id ? '/folder/' + data.cur.parent_id : '/browse'"
+      class="text-verbena font-medium inline-flex items-center gap-1 hover:underline"
+    >
+      ‹ Back
+    </NuxtLink>
     <h1 class="text-4xl my-3">{{ data.cur?.name || 'Sacred Songs' }}</h1>
     <div class="grid grid-cols-2 gap-3">
-      <NuxtLink v-for="f in data.folders" :key="f.id" :to="'/folder/' + f.id" class="card p-5 text-center">
-        <div class="text-3xl">🪔</div><div class="font-head text-xl">{{ f.name }}</div>
+      <NuxtLink v-for="f in data.folders" :key="f.id" :to="'/folder/' + f.id" class="card p-5 text-center hover:shadow-md transition-shadow">
+        <div class="text-3xl">🪔</div>
+        <div class="font-head text-xl mt-1">{{ f.name }}</div>
       </NuxtLink>
     </div>
     <div class="mt-4 space-y-2">
-      <NuxtLink v-for="s in data.songs" :key="s.id" :to="'/song/' + s.id" class="card block p-3">
+      <NuxtLink v-for="s in data.songs" :key="s.id" :to="'/song/' + s.id" class="card block p-3 hover:shadow-md transition-shadow">
         {{ s.song_translations?.[0]?.title }}
       </NuxtLink>
     </div>
